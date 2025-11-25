@@ -36,7 +36,7 @@ export const getTranscriptions = async (req: Request, res: Response) => {
 export const azureTranscribe = async (req: Request, res: Response) => {
   try {
     const _id = await azure.azureTranscribe(req.body.audioUrl);
-    res.json({ _id });
+    res.status(201).json({ _id });
   } catch (err) {
     res.status(500).json({ error: "Azure failed" });
   }

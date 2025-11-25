@@ -36,6 +36,8 @@ export async function getRecentTranscriptions(days = 30): Promise<TranscriptionR
     _id: doc._id.toString(),
     audioUrl: doc.audioUrl,
     transcription: doc.transcription,
-    createdAt: doc.createdAt
+    createdAt: doc.createdAt,
+    source: doc.source,
+    status: doc.status
   }));
 }

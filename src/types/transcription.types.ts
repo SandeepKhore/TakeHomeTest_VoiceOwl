@@ -14,5 +14,7 @@ export interface TranscriptionResult {
   _id: string,
   audioUrl: string,
   transcription: string,
-  createdAt: Date
+  createdAt: Date,
+  source: string,
+  status: string
 }
