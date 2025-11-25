@@ -3,9 +3,16 @@ import { transcriptionRepository }  from "../repositories/transcription.reposito
 
 // Utils
 import { downloadAudio } from "../utils/downloader";
+import { retry } from "../utils/retry";
 
 export async function azureTranscribe(audioUrl: string) {
-  await downloadAudio(audioUrl);
+  // --- Retry download ---
+  const audioPath = await retry(
+    () => downloadAudio(audioUrl),
+    3,   // max attempts
+    500,  // delay in ms
+    true // With exponential Backoff
+  );
 
   //  Real implementation idea mentioned below to avoid blocking memory
   const azureText = "azure mocked transcription";

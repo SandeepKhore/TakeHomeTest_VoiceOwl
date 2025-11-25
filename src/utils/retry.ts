@@ -1,7 +1,8 @@
 export async function retry<T>(
   fn: () => Promise<T>,
   retries = 3,
-  delayMs = 500
+  delayMs = 500,
+  backoff = false
 ): Promise<T> {
   let lastError;
 
@@ -11,7 +12,14 @@ export async function retry<T>(
     } catch (err) {
       lastError = err;
       console.log(`Retry ${i + 1}/${retries} failed`);
-      await new Promise((res) => setTimeout(res, delayMs));
+
+      let delay = delayMs;
+      if (backoff) {
+      // Exponential backoff
+        delay = delayMs * Math.pow(2, i);
+      }
+
+      await new Promise((res) => setTimeout(res, delay));
     }
   }
 
