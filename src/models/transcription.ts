@@ -1,9 +1,9 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, InferSchemaType, ObjectId } from "mongoose";
 
 const transcriptionSchema = new Schema({
-  audioUrl: { 
+  audioUrl: {
     type: String,
-    required: true 
+    required: true
   },
   transcription: {
     type: String,
@@ -13,4 +13,13 @@ const transcriptionSchema = new Schema({
   timestamps: true
 });
 
-export const Transcription = model("Transcription", transcriptionSchema);
+transcriptionSchema.index({ createdAt: 1 });
+
+export type TranscriptionDoc = {
+  _id: ObjectId,
+  audioUrl: string
+  transcription: string,
+  createdAt: Date
+}
+
+export const Transcription = model<TranscriptionDoc>("Transcription", transcriptionSchema);
