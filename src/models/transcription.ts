@@ -11,7 +11,12 @@ const transcriptionSchema = new Schema({
   },
   source: {
     type: String
-  }
+  },
+  status: {
+      type: String,
+      enum: ["transcription", "review", "approval"],
+      default: "transcription",
+  },
 }, {
   timestamps: true
 });
@@ -23,6 +28,7 @@ export type TranscriptionDoc = {
   audioUrl: string
   transcription: string,
   source: string,
+  status: string
   createdAt: Date
 }
 
