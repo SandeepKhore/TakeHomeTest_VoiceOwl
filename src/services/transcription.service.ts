@@ -1,5 +1,10 @@
+// Repositories
 import { transcriptionRepository } from "../repositories/transcription.repository";
+
+// Types
 import { TranscriptionResult } from "../types/transcription.types";
+
+// Utils
 import { retry } from "../utils/retry";
 import { downloadAudio } from "../utils/downloader";
 
