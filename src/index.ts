@@ -1,22 +1,14 @@
-import express from 'express';
+import app from './app'
 import logger from './utils/logger';
-import router from './routes';
 import { connectDB } from './db';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
-const app = express();
-app.use(express.json());
-
-const PORT = process.env.PORT || 3000;
-
-// Added router with versioning
-router(app);
-
-(async () => {
+const main = async () => {
+  const PORT = process.env.PORT || 3000;
+  
   await connectDB();
   app.listen(PORT, () => {
     logger.log('Server running on port: ', PORT)
   })
-})();
+}
+
+main();
