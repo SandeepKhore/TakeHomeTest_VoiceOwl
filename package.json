@@ -1,0 +1,19 @@
+{
+  "name": "takehometest_voiceowl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SandeepKhore/TakeHomeTest_VoiceOwl.git"
+  },
+  "author": "SandeepKhore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SandeepKhore/TakeHomeTest_VoiceOwl/issues"
+  },
+  "homepage": "https://github.com/SandeepKhore/TakeHomeTest_VoiceOwl#readme"
+}
