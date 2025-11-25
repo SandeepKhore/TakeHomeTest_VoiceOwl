@@ -9,6 +9,9 @@ const transcriptionSchema = new Schema({
     type: String,
     required: true
   },
+  source: {
+    type: String
+  }
 }, {
   timestamps: true
 });
@@ -19,6 +22,7 @@ export type TranscriptionDoc = {
   _id: ObjectId,
   audioUrl: string
   transcription: string,
+  source: string,
   createdAt: Date
 }
 

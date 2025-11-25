@@ -17,7 +17,7 @@ export async function azureTranscribe(audioUrl: string) {
   //  Real implementation idea mentioned below to avoid blocking memory
   const azureText = "azure mocked transcription";
 
-  const doc = await transcriptionRepository.create(audioUrl, azureText);
+  const doc = await transcriptionRepository.create(audioUrl, azureText, 'azure');
 
   return doc._id;
 }

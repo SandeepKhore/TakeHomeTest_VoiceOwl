@@ -1,8 +1,8 @@
 import { Transcription, TranscriptionDoc } from "../models/transcription";
 
 export const transcriptionRepository = {
-  async create(audioUrl: string, transcription: string) {
-    return Transcription.create({ audioUrl, transcription });
+  async create(audioUrl: string, transcription: string, source: string = 'internal') {
+    return Transcription.create({ audioUrl, transcription, source });
   },
   
   async findCreatedSince(since: Date): Promise<TranscriptionDoc[]> {
