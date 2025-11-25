@@ -1,4 +1,4 @@
-export default class Logger {
+class Logger {
   constructor() {}
 
   log(msg: string, args?: any) {
@@ -9,3 +9,5 @@ export default class Logger {
     console.error(`[ERROR] - ${new Date().toISOString()} -- ${msg}`, args)
   }
 }
+
+export default new Logger();
