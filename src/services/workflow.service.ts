@@ -1,4 +1,5 @@
-import { Transcription } from "../models/transcription";
+import { transcriptionRepository }  from "../repositories/transcription.repository";
+
 
 const transitions: Record<string, string[]> = {
   transcription: ["review"],
@@ -7,7 +8,7 @@ const transitions: Record<string, string[]> = {
 };
 
 export const moveWorkflow= async (id: string, next: "review" | "approval") => {
-  const doc = await Transcription.findById(id);
+  const doc = await transcriptionRepository.findById(id);
   if (!doc) throw new Error("Document not found");
 
   const allowedNextStates = transitions[doc.status];

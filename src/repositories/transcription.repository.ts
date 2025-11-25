@@ -1,3 +1,4 @@
+import { ObjectId } from "mongoose";
 import { Transcription, TranscriptionDoc } from "../models/transcription";
 
 export const transcriptionRepository = {
@@ -14,5 +15,9 @@ export const transcriptionRepository = {
     .sort({
       createdAt: -1
     })
+  },
+
+  async findById(id: string | ObjectId) {
+    return Transcription.findById(id)
   }
 };

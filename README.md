@@ -10,6 +10,12 @@ Implements required API endpoints, MongoDB storage, Azure STT mock integration, 
 - Dotenv for environment variables
 
 ## Project Structure
+The project follows a Clean modular backend structure using:
+```text
+Controller → Service → Repository → Model
+```
+This keeps responsibilities isolated and makes scaling, testing, and refactoring easy.
+
 ```text
 TakeHomeTest_VoiceOwl/
 ├─ src/
@@ -139,4 +145,3 @@ Example:
 6. Observability
 - Prometheus metrics
 - NewRelic
-
